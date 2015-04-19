@@ -1,6 +1,6 @@
-/etc/yum.repos.d/mongodb-org.repo:
+/etc/yum.repos.d/mongodb.repo:
     file.managed:
-        - source: salt://mongodb-org/mongodb-org.repo
+        - source: salt://mongodb3/mongodb.repo
         - user: root
         - group: root
         - mode: 644
@@ -9,7 +9,7 @@
 mongodb-org:
     pkg.installed:
         - require:
-            - file: /etc/yum.repos.d/mongodb-org.repo
+            - file: /etc/yum.repos.d/mongodb.repo
     service:
         - name: mongod
         - running

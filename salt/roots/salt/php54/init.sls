@@ -18,7 +18,6 @@ php54:
             - php-pecl-geoip
             - php-pecl-memcache
             - php-pecl-redis
-            - php-pecl-xcache
             - composer
             
 php-fpm:

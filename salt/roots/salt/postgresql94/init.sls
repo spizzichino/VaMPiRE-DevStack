@@ -7,8 +7,16 @@ postgresql94-server:
     pkg:
         - installed
         - enablerepo: pgdg94
+    service:
+        - name: postgresql-9.4
+        - running
+        - require:
+            - cmd: postgresql94-initdb
+#            - file: /var/lib/pgsql/9.4/data/pg_hba.conf
+
+postgresql94-initdb:
     cmd.run:
         - name: service postgresql-9.4 initdb
-        - unless: test -d /var/lib/pgsql/9.4/data
-    service:
-        - running        
+        - unless: test -f /var/lib/pgsql/9.4/data/PG_VERSION
+        - require:
+            - pkg: postgresql94-server
