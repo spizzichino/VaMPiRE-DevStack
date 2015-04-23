@@ -9,7 +9,7 @@ An initial Vagrant + VirtualBox development box running on CentOS 6.5 for my LEM
 * [M] MongoDB 3.0, MariaDB 10 (with TokuDB Engine)
 * [P] PHP 5.4, PostgreSQL 9.4
 * [I] ?
-* [R] Redis 2.8, RabbitMQ, redis-commander
+* [R] Redis 2.8, RabbitMQ
 * [E] Nginx, Express
 
 ## Global NodeJS packages installed with 
@@ -18,9 +18,20 @@ An initial Vagrant + VirtualBox development box running on CentOS 6.5 for my LEM
 
 * bower
 * grunt-cli
-* redis-commander
 * socket.io
 
 ## Configuration files
 
-TBD
+* nginx supports virtual hosts in /vagrant/sites/<domain>.local. Define a local host name in your /etc/hosts as
+  127.0.0.1     <domain>.local
+
+## Provision with Salt
+
+Whenever SaltStack configuration files in salt/roots/{pillar,salt} are changed, the box can be re-provisioned from the host with:
+
+  vagrant provision
+
+Or from within the CentOS shell, with the command:
+
+  salt-call state.highstate
+

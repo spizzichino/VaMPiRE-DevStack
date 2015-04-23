@@ -9,5 +9,6 @@ npm-packages:
         - bower
         - grunt-cli
         - socket.io
-        - redis-commander
+#        - redis-commander
+
         

@@ -3,4 +3,7 @@ rabbitmq-server:
         - installed
         - enablerepo: remi
     service:
-        - running
+        - dead
+        - enable: False
+        - reload: False
+
